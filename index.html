@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Das Parteichen</title>
+
+  
+    <link rel="icon" href="/favicon.png">
+
+   
+    <style>
+        @font-face {
+            font-family: "AvenirNextCondensed";
+            src: local("Avenir Next Condensed Heavy Italic"), local("AvenirNextCondensed");
+        }
+    </style>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "AvenirNextCondensed", Arial, sans-serif;
+            background: #f7f7f7;
+            color: #222;
+        }
+
+        header {
+            background: #047677;
+            color: white;
+            padding: 18px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo-section img {
+            height: 55px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            font-size: 16px;
+        }
+
+        .logo-text span {
+            margin: 2px 0;
+        }
+
+        nav a {
+            margin-left: 24px;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        h1, h2 {
+            color: #047677;
+        }
+
+        section {
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .bubble {
+            background: rgba(200,200,200,0.15);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .bubble h3 {
+            margin-top: 0;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .team-grid img {
+            width: 100%;
+            border-radius: 12px;
+            border: 4px solid #047677;
+        }
+
+        .memchen-box, .chen-generator-box {
+            background: rgba(200,200,200,0.15);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        canvas {
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        input[type="text"], input[type="file"] {
+            padding: 10px;
+            width: 100%;
+            margin-top: 8px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            background: #047677;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 12px;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo-section">
+        <img src="logoreal.png" alt="Logo">
+        <div class="logo-text">
+            <span>Mehr -chen.</span>
+            <span>Mehr Gleichstellungchen.</span>
+            <span>Mehr Supportchen.</span>
+        </div>
+    </div>
+    <nav>
+        <a href="#programmchen">Programmchen</a>
+        <a href="#memchen">Memechen-Maschinchen</a>
+        <a href="#chen-generator">-chen Generator</a>
+        <a href="#teamchen">Teamchen</a>
+    </nav>
+</header>
+
+<!-- PROGRAMMCHEN -->
+<section id="programmchen">
+    <h2>Programmchen</h2>
+
+    <div class="bubble">
+        <h3>Gegen Diskriminierungchen</h3>
+        <p>Wir fordern Gleichberechtigung für alle – egal welche Herkunft, welches Alter, welches Geschlecht.</p>
+    </div>
+
+    <div class="bubble">
+        <h3>Schülerchen = Lehrerchen</h3>
+        <p>Kein Lehrerchen ist einem Schülerchen überlegen – egal wie streng.</p>
+    </div>
+
+    <div class="bubble">
+        <h3>Unterstützchen</h3>
+        <p>Wir fordern Unterstützung finanziell Schwacher durch ein bisschen Taschengeld-chen.</p>
+    </div>
+
+    <div class="bubble">
+        <h3>Startup-Boostchen</h3>
+        <p>Wir möchten junge Unternehmen und Startups finanziell unterstützen.</p>
+    </div>
+
+    <div class="bubble">
+        <h3>Chen-Initiative</h3>
+        <p>Wir fordern mehr Gebrauch von der Verniedlichungsform-chen.</p>
+    </div>
+</section>
+
+<!-- MEMCHEN-MASCHINCHEN -->
+<section id="memchen">
+    <h2>Memechen-Maschinchen</h2>
+    <div class="memchen-box">
+        <p>Upload dein Bildchen → wir generieren ein personalisiertes Meme mit Zufallsspruch.</p>
+
+        <input type="file" id="imgUpload" accept="image/*">
+        <button onclick="generateMemchen()">Generierenchen</button>
+        <canvas id="memCanvas"></canvas>
+        <button onclick="downloadMemchen()">Herunterladenchen</button>
+    </div>
+</section>
+
+<!-- CHEN-GENERATOR -->
+<section id="chen-generator">
+    <h2>-chen Generator</h2>
+    <div class="chen-generator-box">
+        <p>Tippe dein Wort ein → wir machen daraus die Verniedlichungsform.</p>
+        <input type="text" id="chenInput" placeholder="Wort eingeben">
+        <button onclick="generateChen()">Generierenchen</button>
+        <p id="chenOutput" style="margin-top:10px;font-weight:bold;"></p>
+    </div>
+</section>
+
+<!-- TEAMCHEN -->
+<section id="teamchen">
+    <h2>Teamchen</h2>
+    <div class="team-grid">
+        <div>
+            <img src="tiaintro.png" alt="Tia">
+        </div>
+        
+        <div> 
+             <img src="mayaintro.png" alt="Maya">
+        </div>
+       
+        <div>
+            <img scr="josefineintro.png" alt="Josefine">
+        </div>
+      
+        <div>
+            <img scr="carolineintro.png" alt="Caroline">
+        </div>
+        
+        <div>
+            <img scr="adaintro.png" alt="Ada">
+        </div>
+       
+    </div>
+</section>
+
+<script>
+const sprueche = [
+    "Hab mein Stimmchen abgegeben. Jetzt fühl ich mich wichtigchen.",
+    "Ich wähle Fortschrittchen.",
+    "Gleichstellungchen für alle.",
+    "Mehr -chen im Alltagchen.",
+    "Mein Stimmchen wurde smart investiertchen.",
+    "Das Parteichen hat mein Supportchen.",
+    "Ich bin jetzt Wahlreifchen.",
+    "Politisch aktivchen – ganz casual.",
+    "Ich hab gewählt, mein Ego bedankt sich.",
+    "Upgrade: Demokratiechen abgeschlossen.",
+    "Chen-Level: Hochqualifiziertchen.",
+    "Reformenchen? Bin dabei.",
+    "Stimmchen abgegeben, Zukunft geboostet.",
+    "Wählen ist mein Cardiochen.",
+    "Das Parteichen? Approvedchen.",
+    "Ich habe abgestimmt – und das mit Stylechen."
+];
+
+function generateMemchen() {
+    const file = document.getElementById("imgUpload").files[0];
+    if (!file) return;
+
+    const canvas = document.getElementById("memCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        const img = new Image();
+        img.onload = function() {
+            canvas.width = img.width;
+            canvas.height = img.height;
+
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+            const spruch = sprueche[Math.floor(Math.random() * sprueche.length)];
+
+            // Schrift für Spruch: größer, weiß, Umrandung #047677, Avenir Next Condensed Heavy Italic
+            ctx.font = "bold italic 72px 'AvenirNextCondensed', Arial, sans-serif";
+            ctx.textAlign = "center";
+            ctx.lineWidth = 8;
+
+            ctx.strokeStyle = "#047677";
+            ctx.strokeText(spruch, canvas.width / 2, 100);
+
+            ctx.fillStyle = "white";
+            ctx.fillText(spruch, canvas.width / 2, 100);
+
+            // iVoted-Badge
+            const badge = new Image();
+            badge.src = "ivoted.png"; 
+            badge.onload = function() {
+                const size = canvas.width * 0.22;
+                ctx.drawImage(badge, canvas.width - size - 25, canvas.height - size - 25, size, size);
+            };
+        };
+        img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+}
+
+function downloadMemchen() {
+    const canvas = document.getElementById("memCanvas");
+    const link = document.createElement("a");
+    link.download = "memchen.png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+}
+
+function generateChen() {
+    const input = document.getElementById("chenInput").value.trim();
+    if (!input) return;
+    document.getElementById("chenOutput").innerText = input + "-chen";
+}
+</script>
+
+<footer>
+    <p>©️ 2025 Das Parteichen. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
